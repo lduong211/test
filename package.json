@@ -2,16 +2,17 @@
   "name": "nodejs_practice",
   "version": "1.0.0",
   "description": "practice node js",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --inspect index.js",
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/resources/scss -o src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lduong211/test.git"
   },
-  "author": "",
+  "author": "KIDz",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lduong211/test/issues"
@@ -21,6 +22,13 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "express-handlebars": "^5.3.4",
+    "morgan": "^1.10.0",
+    "node-sass": "^6.0.1",
     "nodemon": "^2.0.14"
-  }
+  },
+  "keywords": [
+    "nodejs",
+    "practice-node"
+  ]
 }
