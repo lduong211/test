@@ -1,8 +1,8 @@
-const express = require('express')
 const path = require('path')
-const port = 3000
+const express = require('express')
 const morgan = require('morgan')
-var handlebars  = require('express-handlebars')
+const port = 3000
+const handlebars  = require('express-handlebars')
 
 const app = express()
 
@@ -25,6 +25,8 @@ app.use(morgan('combined', {
 app.get('/', (req, res) => res.render('home'))
 
 app.get('/news', (req, res) => res.render('news'))
+
+app.get('/search', (req, res) => res.render('search'))
 
 
 app.listen(port, () => {
