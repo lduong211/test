@@ -1,34 +1,39 @@
-const path = require('path')
-const express = require('express')
-const morgan = require('morgan')
-const port = 3000
-const handlebars  = require('express-handlebars')
+const path = require('path');
+const express = require('express');
+const morgan = require('morgan');
+const port = 3000;
+const handlebars = require('express-handlebars');
+const route = require('./routes');
 
-const app = express()
+const app = express();
+
+//Middle Ware
+app.use(
+  express.urlencoded({
+    extended: true,
+  }),
+);
+app.use(express.json());
 
 //Static file
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Template engine
-app.engine('hbs', handlebars({
-    extname: ".hbs"
-}))
-app.set('view engine', 'hbs')
-app.set('views', path.join(__dirname, 'resources/views'))
+app.engine(
+  'hbs',
+  handlebars({
+    extname: '.hbs',
+  }),
+);
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'resources/views'));
 
 //HTTP logger
-app.use(morgan('combined', {
-    skip: function (req, res) { return res.statusCode < 400 }
-}))
+app.use(morgan('combined'));
 
-//route
-app.get('/', (req, res) => res.render('home'))
-
-app.get('/news', (req, res) => res.render('news'))
-
-app.get('/search', (req, res) => res.render('search'))
-
+//routes
+route(app);
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-})
+  console.log(`Example app listening at http://localhost:${port}`);
+});
