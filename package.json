@@ -5,7 +5,6 @@
   "main": "src/index.js",
   "scripts": {
     "prettier": "lint-staged",
-    "prepare": "lint-staged",
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass --watch src/resources/scss -o src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,7 +27,6 @@
   },
   "devDependencies": {
     "express-handlebars": "^5.3.4",
-    "husky": "^7.0.4",
     "lint-staged": "^11.2.6",
     "morgan": "^1.10.0",
     "node-sass": "^6.0.1",

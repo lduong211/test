@@ -5,8 +5,10 @@ function route(app) {
   //route
 
         app.use('/news', newsRouter);
+                            
+    app.use('/', siteRouter);
 
-                         app.use('/', siteRouter);
+    //testttttttttttttt husky
 
   // app.post('/', (req, res) => {
   //     console.log(req.body.q)
